@@ -7,8 +7,7 @@ Supports most common video file types (mkv, mp4, etc)
 - Run terminal in this folder
 
 ## Steps:
-- Install FFMPEG: $sudo apt-get install ffmpeg
-- python3 jpeg_extractor.py --video video_name.mkv
+- Install FFMPEG on Linux: $ sudo apt-get install ffmpeg
+- To extract a whole video at rate of 1 fps: $ python3 jpeg_extractor.py --video video_name.mkv
 
-- python3 jpeg_extractor.py --help for optional parameters
-
+- To view optional parameters: $python3 jpeg_extractor.py --help 
