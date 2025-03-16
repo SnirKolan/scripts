@@ -31,7 +31,7 @@ def remux_video(input_video):
     print("Remuxing complete.")
     return remuxed_video
 
-def extract_frames(file_name, output_dir, desired_jpegs_per_sec, start_time = None, end_time = None):
+def extract_frames(file_name, output_dir, desired_jpegs_per_sec, start_time = None, end_time = None, quality = 2):
     output_pattern = os.path.join(output_dir, 'frame_%04d.jpg')
     print("Extracting frames...")
     # FFmpeg command to extract the desired frames
@@ -43,7 +43,7 @@ def extract_frames(file_name, output_dir, desired_jpegs_per_sec, start_time = No
     if end_time is not None:
         command += ['-to', str(end_time)]
 
-    command += ['-i', file_name, '-vf', f'fps={desired_jpegs_per_sec}', output_pattern]
+    command += ['-i', file_name, '-vf', f'fps={desired_jpegs_per_sec}', '-q:v', str(quality), output_pattern]
 
     subprocess.run(command)
     print("Done extracting frames!")
